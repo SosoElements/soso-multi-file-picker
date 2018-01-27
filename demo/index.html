@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>soso-multi-file-picker demo</title>
+
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../soso-multi-file-picker.html">
+
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
+  </custom-style>
+</head>
+
+<body>
+  <div class="vertical-section-container centered">
+    <h3>Basic soso-multi-file-picker demo</h3>
+    <demo-snippet>
+      <template>
+        <soso-multi-file-picker id="files"></soso-multi-file-picker>
+        <p>
+          <button onclick="clearFiles()">Clear</button>
+        </p>
+      </template>
+    </demo-snippet>
+  </div>
+  <script>
+    function clearFiles() {
+      document.getElementById("files").clear();
+    }
+    document.getElementById("files").addEventListener("files", (event) => {
+      console.log("files picked: ", event.detail.files);
+    });
+  </script>
+</body>
+
+</html>
